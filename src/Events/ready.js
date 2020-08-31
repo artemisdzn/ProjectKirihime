@@ -1,17 +1,16 @@
+// TO DO: Polish ready event and seperate the other events to their corresponding functions
+
 const Event = require('../Structures/Event')
 const { MessageEmbed } = require("discord.js")
 const os = require('os');
 const ms = require('ms');
 
-//Music Commands
+// Music Commands
 const { ErelaClient, Utils } = require('erela.js');
 const { nodes } = require('../../config.json');
 
-// Heroku Pinger
-const http = require('http'); //importing http
-
-//Top.gg API
-const dblToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyNzA1NzkyNzU5NjI3NzgyMSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTk2OTQ2NjE4fQ.NADtyOiRj24KQINeKuJ-w6CbjLwpHEfsAJevY0BivvA";
+// Top.gg API
+const dblToken = "top.gg api token here";
 const DBL = require('dblapi.js');
 const dbl = new DBL(dblToken, this.client);
 
@@ -40,22 +39,6 @@ module.exports = class extends Event {
             .set('low', 0.10)
             .set('medium', 0.15)
             .set('high', 0.25);
-
-        setInterval(() => {
-            const options = nodes
-            http.get(options, (res) => {
-                res.on('data', (chunk) => {
-                    try {
-                        // optional logging... disable after it's working
-                        console.log("HEROKU RESPONSE: " + chunk);
-                    } catch (err) {
-                        console.log(err.message);
-                    }
-                });
-            }).on('error', (err) => {
-                console.log("Error: " + err.message);
-            });
-        }, 1800000); // load every 30 minutes
 
         const mainGuild = this.client.guilds.cache.get("740450115202056192");
 
