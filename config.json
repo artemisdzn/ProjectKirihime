@@ -1,0 +1,16 @@
+{
+    "prefix": "prefix here",
+    "token": "token here",
+    "nodes": [
+        {
+            "host": "hostname",
+            "port": 80,
+            "rest_url": "url here",
+            "password": "password here",
+            "region": "region here"
+        }
+    ],
+    "owners": [
+        "discord user id"
+    ]
+}
